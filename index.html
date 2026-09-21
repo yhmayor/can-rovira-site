@@ -127,8 +127,8 @@
   .tl-item p { color: var(--text-soft); font-size: 15px; margin: 0; }
 
   /* ---------- HOUSE / FLOORS ---------- */
-  .floors { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
-  @media (max-width: 800px) { .floors { grid-template-columns: 1fr; } }
+  .floors { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 44px; }
+  @media (max-width: 700px) { .floors { grid-template-columns: 1fr; } }
   .floor-card { padding-top: 26px; border-top: 2px solid var(--brick); }
   .floor-card h3 { font-size: 22px; margin: 0 0 6px; }
   .floor-card .floor-sub { font-size: 14px; color: var(--text-soft); margin-bottom: 20px; }
@@ -222,7 +222,7 @@
   <div class="hero-copy">
     <div class="hero-eyebrow">Alella, Catalonia — Maresme coast</div>
     <h1>Can Rovira</h1>
-    <p class="lede">A 19th-century family masia set on three hectares of pine, citrus and vineyard, twenty minutes from Barcelona and three kilometres from the Mediterranean.</p>
+    <p class="lede">A 19th-century family masia set on three hectares of pine and citrus, twenty minutes from Barcelona and three kilometres from the Mediterranean.</p>
     <div class="cta-row">
       <a href="#disponibilidad" class="btn btn-primary">Check availability</a>
       <a href="#casa" class="btn btn-outline">Explore the house</a>
@@ -241,7 +241,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="section-tag">Since 1863</div>
-      <h2>A house that kept its own name on the bottle</h2>
+      <h2>A bit of history</h2>
       <p>Can Rovira has stayed within the same family since it was bought as a working farm — and its story runs through wine as much as stone.</p>
     </div>
     <div class="timeline">
@@ -273,33 +273,41 @@
   <div class="wrap">
     <div class="section-head">
       <div class="section-tag">The house</div>
-      <h2>Two floors, kept as they were</h2>
+      <h2>Renovated rooms, kept true to the original feel</h2>
       <p>Every room was furnished to hold onto the house's age rather than smooth it over — high ceilings, thick walls, and a staircase that has carried three centuries of the same family up to bed.</p>
     </div>
     <div class="floors">
       <div class="floor-card">
         <h3>Ground floor</h3>
-        <div class="floor-sub">Entrance hall and the main staircase</div>
+        <div class="floor-sub">Entrance from the patio</div>
         <ul>
-          <li>Living room, hung with portraits of the family who have owned the house since 1863</li>
-          <li>Library opening directly onto the garden</li>
-          <li>Large dining room</li>
-          <li>Fully equipped kitchen</li>
-          <li>Three bedrooms and one bathroom</li>
+          <li>Entrance from the patio</li>
+          <li>The house's main staircase</li>
         </ul>
       </div>
       <div class="floor-card">
         <h3>First floor</h3>
         <div class="floor-sub">Up the original staircase</div>
         <ul>
-          <li>Four further bedrooms, several with sea views</li>
-          <li>A second living and dining room</li>
+          <li>Entrance hall</li>
+          <li>Dining room</li>
+          <li>Living room, hung with portraits of the family who have owned the house since 1863</li>
+          <li>Library opening directly onto the garden</li>
+          <li>Fully equipped kitchen</li>
+          <li>Three bedrooms and one bathroom</li>
+        </ul>
+      </div>
+      <div class="floor-card">
+        <h3>Second floor</h3>
+        <div class="floor-sub">One more flight up</div>
+        <ul>
+          <li>Four bedrooms, several with sea views</li>
           <li>One bathroom</li>
-          <li>No heating or air conditioning — the thick walls and high ceilings keep rooms cool through summer, and every room has its own fan</li>
-          <li>Hot water throughout</li>
+          <li>A large living room</li>
         </ul>
       </div>
     </div>
+    <p style="margin-top:36px; font-size:14.5px; color:var(--text-soft); border-top:1px solid var(--hairline); padding-top:20px; max-width:640px;">No heating or air conditioning — the thick walls and high ceilings keep rooms cool through summer, and every room has its own fan. Hot water throughout.</p>
   </div>
 </section>
 
@@ -311,13 +319,13 @@
       <p>Ten beds across seven bedrooms, comfortable for fourteen guests.</p>
     </div>
     <div class="room-grid">
-      <div class="room-card"><div class="room-no">Bedroom 1</div><h3>Ground floor</h3><p>One large double bed</p></div>
-      <div class="room-card"><div class="room-no">Bedroom 2</div><h3>Ground floor</h3><p>One large double bed</p></div>
-      <div class="room-card"><div class="room-no">Bedroom 3</div><h3>Ground floor</h3><p>One large double bed and one single bed — suits a couple with a child</p></div>
-      <div class="room-card"><div class="room-no">Bedroom 4</div><h3>First floor</h3><p>Two single beds</p></div>
-      <div class="room-card"><div class="room-no">Bedroom 5</div><h3>First floor</h3><p>Two single beds</p></div>
-      <div class="room-card"><div class="room-no">Bedroom 6</div><h3>First floor</h3><p>One large double bed</p></div>
-      <div class="room-card"><div class="room-no">Bedroom 7</div><h3>First floor</h3><p>One large double bed, sea view</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 1</div><h3>First floor</h3><p>One large double bed</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 2</div><h3>First floor</h3><p>One large double bed</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 3</div><h3>First floor</h3><p>One large double bed and one single bed — suits a couple with a child</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 4</div><h3>Second floor</h3><p>Two single beds</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 5</div><h3>Second floor</h3><p>Two single beds</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 6</div><h3>Second floor</h3><p>One large double bed</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 7</div><h3>Second floor</h3><p>One large double bed, sea view</p></div>
     </div>
   </div>
 </section>
@@ -337,7 +345,7 @@
         <li><div class="dot"></div><div><b>Orchard and pines</b><span>Lemon, orange and palm trees through the garden, with pine woods bordering the property</span></div></li>
         <li><div class="dot"></div><div><b>On-site gardener</b><span>Lives in a separate apartment on the grounds and is on hand for anything guests need, without intruding on the house</span></div></li>
       </ul>
-      <svg viewBox="0 0 460 420" role="img" aria-label="Illustration of a rectangular swimming pool bordered by sun loungers, with rows of vines and citrus trees behind it.">
+      <svg viewBox="0 0 460 420" role="img" aria-label="Illustration of a rectangular swimming pool bordered by sun loungers, with citrus and pine trees in the garden behind it.">
         <rect x="20" y="60" width="420" height="180" rx="4" fill="#1F261B" stroke="#C9A876" stroke-width="1.5"/>
         <rect x="20" y="60" width="420" height="180" rx="4" fill="none" stroke="#EDE6D6" stroke-width="0.5" opacity="0.3"/>
         <g stroke="#4A5740" stroke-width="10" opacity="0.9">
@@ -403,7 +411,7 @@
     </div>
     <div class="loc-grid">
       <div>
-        <p>Alella sits on the Maresme coast just north of Barcelona, a small town built around narrow old streets and a long history of winemaking — the same hills that once supplied Can Rovira's own cellars still carry vines today, and several of the region's wineries are open for tastings.</p>
+        <p>Alella sits on the Maresme coast just north of Barcelona, a small town built around narrow old streets and centuries of winemaking — the same Alella wine region that once bottled Can Rovira's own wine still produces it today, and several of the region's wineries are open for tastings.</p>
         <p style="margin-top:16px;">The town keeps a slower pace than the city twenty kilometres south, with walking and cycling routes through the surrounding countryside and easy access to the beaches along the coast.</p>
       </div>
       <div class="loc-dist">
