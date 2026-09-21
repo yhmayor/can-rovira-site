@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Can Rovira — Alella, Catalonia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --stone: #EDE6D6;
+    --stone-2: #E3D9C4;
+    --ink: #2A2520;
+    --ink-soft: #58514A;
+    --pine: #3E4A38;
+    --pine-2: #2E3728;
+    --brick: #A8542F;
+    --brick-2: #8C4526;
+    --sand: #CBB48C;
+    --gold: #93731F;
+    --hairline: rgba(42,37,32,0.16);
+    --bg: var(--stone);
+    --surface: #F6F1E6;
+    --text: var(--ink);
+    --text-soft: var(--ink-soft);
+    --card-bg: #F6F1E6;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #211D18;
+      --surface: #2A2521;
+      --text: #EDE6D6;
+      --text-soft: #C6BCAC;
+      --card-bg: #2A2521;
+      --hairline: rgba(237,230,214,0.14);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D18;
+    --surface: #2A2521;
+    --text: #EDE6D6;
+    --text-soft: #C6BCAC;
+    --card-bg: #2A2521;
+    --hairline: rgba(237,230,214,0.14);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -0.01em; }
+  p { max-width: 62ch; }
+
+  /* ---------- NAV ---------- */
+  header.site-nav {
+    position: sticky; top: 0; z-index: 40;
+    padding-top: env(safe-area-inset-top, 0px);
+    background: var(--bg);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px; max-width: 1180px; margin: 0 auto; gap: 16px;
+  }
+  .wordmark { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 500; text-decoration: none; white-space: nowrap; }
+  .wordmark span { color: var(--brick); }
+  nav.links { display: flex; gap: 26px; flex-wrap: wrap; }
+  nav.links a { text-decoration: none; font-size: 14.5px; color: var(--text-soft); transition: color .15s; }
+  nav.links a:hover { color: var(--text); }
+  .nav-toggle { display: none; background: none; border: 1px solid var(--hairline); border-radius: 8px; padding: 8px 10px; color: var(--text); font-size: 20px; line-height: 1; }
+  @media (max-width: 780px) {
+    nav.links { display: none; }
+    .nav-toggle { display: block; }
+    nav.links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); padding: 18px 28px 24px; border-bottom: 1px solid var(--hairline); gap: 16px; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    display: grid; grid-template-columns: 1.05fr 1fr; align-items: stretch;
+    min-height: 640px;
+  }
+  .hero-copy {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 64px 28px 64px clamp(28px, 6vw, 80px);
+    max-width: 640px;
+  }
+  .hero-eyebrow { font-size: 14px; color: var(--brick); margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(42px, 6vw, 68px); line-height: 1.02; margin: 0 0 22px; }
+  .hero p.lede { font-size: 18px; color: var(--text-soft); margin-bottom: 34px; }
+  .hero-facts { display: flex; gap: 26px; flex-wrap: wrap; margin-bottom: 36px; padding-top: 22px; border-top: 1px solid var(--hairline); }
+  .hero-fact b { display: block; font-family: 'Fraunces', serif; font-size: 23px; font-weight: 500; }
+  .hero-fact span { font-size: 13px; color: var(--text-soft); }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 3px; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+  .btn-primary { background: var(--pine); color: #F6F1E6; }
+  .btn-primary:hover { background: var(--pine-2); }
+  .btn-outline { border-color: var(--text); }
+  .hero-visual { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--pine) 0%, var(--pine-2) 100%); }
+
+  /* ---------- SECTION SHELL ---------- */
+  section { padding: 96px 0; border-bottom: 1px solid var(--hairline); }
+  .section-head { max-width: 560px; margin-bottom: 52px; }
+  .section-tag { font-size: 14px; color: var(--brick); margin-bottom: 12px; }
+  .section-head h2 { font-size: clamp(30px, 4vw, 42px); margin: 0 0 16px; }
+  .section-head p { color: var(--text-soft); }
+
+  /* ---------- HISTORY TIMELINE ---------- */
+  .timeline { display: grid; grid-template-columns: 120px 1fr; gap: 0 28px; max-width: 720px; }
+  .tl-year { font-family: 'Fraunces', serif; font-size: 26px; padding-top: 2px; }
+  .tl-item { position: relative; padding-left: 24px; padding-bottom: 46px; border-left: 1px solid var(--hairline); }
+  .tl-item::before { content: ''; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--brick); }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; font-family: 'Work Sans', sans-serif; }
+  .tl-item p { color: var(--text-soft); font-size: 15px; margin: 0; }
+
+  /* ---------- HOUSE / FLOORS ---------- */
+  .floors { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+  @media (max-width: 800px) { .floors { grid-template-columns: 1fr; } }
+  .floor-card { padding-top: 26px; border-top: 2px solid var(--brick); }
+  .floor-card h3 { font-size: 22px; margin: 0 0 6px; }
+  .floor-card .floor-sub { font-size: 14px; color: var(--text-soft); margin-bottom: 20px; }
+  .floor-card ul { list-style: none; margin: 0; padding: 0; }
+  .floor-card li { padding: 11px 0; border-top: 1px solid var(--hairline); font-size: 15.5px; }
+  .floor-card li:first-child { border-top: none; }
+
+  /* ---------- BEDROOMS ---------- */
+  .room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+  .room-card { background: var(--bg); padding: 26px 22px; }
+  .room-card .room-no { font-family: 'Fraunces', serif; font-size: 15px; color: var(--brick); margin-bottom: 10px; }
+  .room-card h3 { font-size: 19px; margin: 0 0 8px; font-weight: 500; }
+  .room-card p { font-size: 14px; color: var(--text-soft); margin: 0; }
+
+  /* ---------- GARDEN (dark) ---------- */
+  .garden-section { background: var(--pine-2); color: #EDE6D6; border-bottom: none; }
+  .garden-section .section-tag { color: #C9A876; }
+  .garden-section .section-head p { color: rgba(237,230,214,0.72); }
+  .garden-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  @media (max-width: 860px) { .garden-grid { grid-template-columns: 1fr; } }
+  .garden-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+  .garden-list li { display: flex; gap: 16px; align-items: flex-start; font-size: 15.5px; }
+  .garden-list .dot { width: 7px; height: 7px; border-radius: 50%; background: #C9A876; margin-top: 9px; flex-shrink: 0; }
+  .garden-list b { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; margin-bottom: 3px; }
+  .garden-list span { color: rgba(237,230,214,0.72); }
+
+  /* ---------- AVAILABILITY ---------- */
+  .avail-wrap { display: grid; grid-template-columns: 1fr 340px; gap: 56px; align-items: start; }
+  @media (max-width: 900px) { .avail-wrap { grid-template-columns: 1fr; } }
+  .cal-card { background: var(--card-bg); border: 1px solid var(--hairline); padding: 8px; }
+  .cal-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 10px 18px; }
+  .cal-head button { background: none; border: 1px solid var(--hairline); border-radius: 6px; width: 34px; height: 34px; font-size: 16px; cursor: pointer; color: var(--text); }
+  .cal-head button:hover { border-color: var(--text); }
+  .cal-month-label { font-family: 'Fraunces', serif; font-size: 19px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; padding: 0 10px 16px; }
+  .cal-dow { text-align: center; font-size: 11.5px; color: var(--text-soft); padding-bottom: 8px; }
+  .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 13.5px; border-radius: 5px; }
+  .cal-day.pad { visibility: hidden; }
+  .cal-day.open { background: rgba(62,74,56,0.08); color: var(--text); }
+  .cal-day.booked { background: var(--hairline); color: var(--text-soft); text-decoration: line-through; text-decoration-color: var(--text-soft); text-decoration-thickness: 1px; }
+  .cal-day.today { box-shadow: inset 0 0 0 1.5px var(--brick); font-weight: 600; }
+  .cal-legend { display: flex; gap: 20px; padding: 4px 10px 12px; font-size: 13px; color: var(--text-soft); }
+  .cal-legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .sw.open { background: rgba(62,74,56,0.35); }
+  .sw.booked { background: var(--text-soft); }
+  .avail-side h3 { font-size: 21px; margin: 0 0 14px; }
+  .avail-side p { color: var(--text-soft); font-size: 15px; margin-bottom: 26px; }
+  .plat-links { display: grid; gap: 12px; }
+  .plat-link { display: flex; align-items: center; justify-content: space-between; padding: 15px 18px; border: 1px solid var(--hairline); text-decoration: none; color: var(--text); font-size: 15px; transition: border-color .15s; }
+  .plat-link:hover { border-color: var(--text); }
+  .plat-link .arrow { color: var(--text-soft); }
+  .avail-note { margin-top: 24px; font-size: 13px; color: var(--text-soft); border-top: 1px solid var(--hairline); padding-top: 18px; }
+
+  /* ---------- LOCATION ---------- */
+  .loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  @media (max-width: 800px) { .loc-grid { grid-template-columns: 1fr; } }
+  .loc-dist { display: grid; gap: 18px; margin-top: 30px; }
+  .loc-dist div { display: flex; justify-content: space-between; border-top: 1px solid var(--hairline); padding-top: 14px; font-size: 15px; }
+  .loc-dist span:last-child { color: var(--text-soft); }
+
+  /* ---------- FOOTER ---------- */
+  footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom, 0px)); }
+  .foot-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 28px; align-items: flex-end; }
+  footer .wordmark { display: block; margin-bottom: 10px; }
+  footer .host-line { color: var(--text-soft); font-size: 14.5px; }
+  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .foot-links a { font-size: 14px; text-decoration: none; color: var(--text-soft); }
+  .foot-links a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-row">
+    <a href="#top" class="wordmark">Can Rovira <span>· 1863</span></a>
+    <nav class="links" id="navLinks">
+      <a href="#historia">History</a>
+      <a href="#casa">The house</a>
+      <a href="#habitaciones">Bedrooms</a>
+      <a href="#jardin">Garden &amp; pool</a>
+      <a href="#disponibilidad">Availability</a>
+      <a href="#ubicacion">Location</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<section class="hero" style="border-bottom:none; padding:0;">
+  <div class="hero-copy">
+    <div class="hero-eyebrow">Alella, Catalonia — Maresme coast</div>
+    <h1>Can Rovira</h1>
+    <p class="lede">A 19th-century family masia set on three hectares of pine, citrus and vineyard, twenty minutes from Barcelona and three kilometres from the Mediterranean.</p>
+    <div class="cta-row">
+      <a href="#disponibilidad" class="btn btn-primary">Check availability</a>
+      <a href="#casa" class="btn btn-outline">Explore the house</a>
+    </div>
+    <div class="hero-facts">
+      <div class="hero-fact"><b>14</b><span>guests</span></div>
+      <div class="hero-fact"><b>7</b><span>bedrooms</span></div>
+      <div class="hero-fact"><b>2.5</b><span>bathrooms</span></div>
+      <div class="hero-fact"><b>3 ha</b><span>of grounds</span></div>
+    </div>
+  </div>
+  <div class="hero-visual"><img src="assets/img/hero.jpg" alt="The stone facade of Can Rovira, with its arched entrance, wrought-iron balconies and a palm tree in front, under a clear sky." style="width:100%;height:100%;min-height:640px;object-fit:cover;display:block;"></div>
+</section>
+
+<section id="historia">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Since 1863</div>
+      <h2>A house that kept its own name on the bottle</h2>
+      <p>Can Rovira has stayed within the same family since it was bought as a working farm — and its story runs through wine as much as stone.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-year">1863</div>
+      <div class="tl-item">
+        <h3>The estate is acquired</h3>
+        <p>The family bought Mas Monnar, the original farmhouse on the property, and turned the land over to agriculture — chiefly grapevines.</p>
+      </div>
+      <div class="tl-year">1880s</div>
+      <div class="tl-item">
+        <h3>Wine under its own label</h3>
+        <p>The cellars bottled red wine under the name Alella Can Rovira, grown and pressed on the estate itself.</p>
+      </div>
+      <div class="tl-year">1888</div>
+      <div class="tl-item">
+        <h3>Gold in Barcelona</h3>
+        <p>That red wine won a gold medal at the 1888 Barcelona Universal Exposition — a result the family still points to.</p>
+      </div>
+      <div class="tl-year">Today</div>
+      <div class="tl-item">
+        <h3>Still a family house</h3>
+        <p>The rooms keep their original character and the family's own portraits on the walls, now open to guests for stays by the week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="casa">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">The house</div>
+      <h2>Two floors, kept as they were</h2>
+      <p>Every room was furnished to hold onto the house's age rather than smooth it over — high ceilings, thick walls, and a staircase that has carried three centuries of the same family up to bed.</p>
+    </div>
+    <div class="floors">
+      <div class="floor-card">
+        <h3>Ground floor</h3>
+        <div class="floor-sub">Entrance hall and the main staircase</div>
+        <ul>
+          <li>Living room, hung with portraits of the family who have owned the house since 1863</li>
+          <li>Library opening directly onto the garden</li>
+          <li>Large dining room</li>
+          <li>Fully equipped kitchen</li>
+          <li>Three bedrooms and one bathroom</li>
+        </ul>
+      </div>
+      <div class="floor-card">
+        <h3>First floor</h3>
+        <div class="floor-sub">Up the original staircase</div>
+        <ul>
+          <li>Four further bedrooms, several with sea views</li>
+          <li>A second living and dining room</li>
+          <li>One bathroom</li>
+          <li>No heating or air conditioning — the thick walls and high ceilings keep rooms cool through summer, and every room has its own fan</li>
+          <li>Hot water throughout</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="habitaciones">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Sleeping seven rooms</div>
+      <h2>Bedrooms, room by room</h2>
+      <p>Ten beds across seven bedrooms, comfortable for fourteen guests.</p>
+    </div>
+    <div class="room-grid">
+      <div class="room-card"><div class="room-no">Bedroom 1</div><h3>Ground floor</h3><p>One large double bed</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 2</div><h3>Ground floor</h3><p>One large double bed</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 3</div><h3>Ground floor</h3><p>One large double bed and one single bed — suits a couple with a child</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 4</div><h3>First floor</h3><p>Two single beds</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 5</div><h3>First floor</h3><p>Two single beds</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 6</div><h3>First floor</h3><p>One large double bed</p></div>
+      <div class="room-card"><div class="room-no">Bedroom 7</div><h3>First floor</h3><p>One large double bed, sea view</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="jardin" class="garden-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Three hectares</div>
+      <h2>Garden, pool and the edge of the pines</h2>
+      <p>Thirty thousand square metres of grounds, planted with pines, lemon, orange and palm trees, running out to a pine wood with views over the sea and the village.</p>
+    </div>
+    <div class="garden-grid">
+      <ul class="garden-list">
+        <li><div class="dot"></div><div><b>Swimming pool</b><span>Sun loungers, umbrellas and pool towels provided, plus a private outdoor bathroom for guests only</span></div></li>
+        <li><div class="dot"></div><div><b>Terrace and barbecue</b><span>An open-air dining terrace with a barbecue, set up for long lunches outside</span></div></li>
+        <li><div class="dot"></div><div><b>Ping-pong table</b><span>Set on the back terrace alongside the outdoor dining area</span></div></li>
+        <li><div class="dot"></div><div><b>Orchard and pines</b><span>Lemon, orange and palm trees through the garden, with pine woods bordering the property</span></div></li>
+        <li><div class="dot"></div><div><b>On-site gardener</b><span>Lives in a separate apartment on the grounds and is on hand for anything guests need, without intruding on the house</span></div></li>
+      </ul>
+      <svg viewBox="0 0 460 420" role="img" aria-label="Illustration of a rectangular swimming pool bordered by sun loungers, with rows of vines and citrus trees behind it.">
+        <rect x="20" y="60" width="420" height="180" rx="4" fill="#1F261B" stroke="#C9A876" stroke-width="1.5"/>
+        <rect x="20" y="60" width="420" height="180" rx="4" fill="none" stroke="#EDE6D6" stroke-width="0.5" opacity="0.3"/>
+        <g stroke="#4A5740" stroke-width="10" opacity="0.9">
+          <line x1="40" y1="40" x2="90" y2="40"/><line x1="130" y1="40" x2="180" y2="40"/>
+          <line x1="280" y1="40" x2="330" y2="40"/><line x1="370" y1="40" x2="420" y2="40"/>
+        </g>
+        <g fill="none" stroke="#C9A876" stroke-width="1">
+          <rect x="40" y="270" width="46" height="20" rx="3"/>
+          <rect x="100" y="270" width="46" height="20" rx="3"/>
+          <rect x="314" y="270" width="46" height="20" rx="3"/>
+          <rect x="374" y="270" width="46" height="20" rx="3"/>
+        </g>
+        <g stroke="#5C6B52" stroke-width="1.2" opacity="0.7">
+          <line x1="20" y1="330" x2="440" y2="330"/>
+          <line x1="20" y1="360" x2="440" y2="360"/>
+          <line x1="20" y1="390" x2="440" y2="390"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="disponibilidad">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Book direct or through a platform</div>
+      <h2>Availability</h2>
+      <p>These dates are pulled from our Airbnb and Booking.com calendars, so what you see here is what's actually free — booking itself, and pricing, happens on whichever platform you prefer.</p>
+    </div>
+    <div class="avail-wrap">
+      <div class="cal-card">
+        <div class="cal-head">
+          <button id="prevMonth" aria-label="Previous month">&#8249;</button>
+          <div class="cal-month-label" id="calLabel"></div>
+          <button id="nextMonth" aria-label="Next month">&#8250;</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-legend">
+          <span><i class="sw open"></i>Available</span>
+          <span><i class="sw booked"></i>Booked</span>
+        </div>
+        <div id="calFreshness" style="padding:0 10px 14px;font-size:12.5px;color:var(--text-soft);">Loading availability…</div>
+      </div>
+      <div class="avail-side">
+        <h3>Ready to book?</h3>
+        <p>Reach out on either platform — messages, payment and cancellation terms all run through them directly.</p>
+        <div class="plat-links">
+          <a class="plat-link" href="https://www.airbnb.com/rooms/13278447" target="_blank" rel="noopener">View on Airbnb <span class="arrow">&#8594;</span></a>
+          <a class="plat-link" href="#" target="_blank" rel="noopener">View on Booking.com <span class="arrow">&#8594;</span></a>
+        </div>
+        <div class="avail-note">Calendar syncs periodically from both platforms. If a date looks open, it's worth confirming on the platform before you finalise plans.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ubicacion">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Alella, Maresme coast</div>
+      <h2>Village, vineyards and a short run to Barcelona</h2>
+    </div>
+    <div class="loc-grid">
+      <div>
+        <p>Alella sits on the Maresme coast just north of Barcelona, a small town built around narrow old streets and a long history of winemaking — the same hills that once supplied Can Rovira's own cellars still carry vines today, and several of the region's wineries are open for tastings.</p>
+        <p style="margin-top:16px;">The town keeps a slower pace than the city twenty kilometres south, with walking and cycling routes through the surrounding countryside and easy access to the beaches along the coast.</p>
+      </div>
+      <div class="loc-dist">
+        <div><span>Mediterranean beach</span><span>3 km</span></div>
+        <div><span>Alella village centre</span><span>Walking distance</span></div>
+        <div><span>Barcelona city centre</span><span>20 km</span></div>
+        <div><span>Barcelona–El Prat airport</span><span>~35 km</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div>
+        <a href="#top" class="wordmark">Can Rovira</a>
+        <div class="host-line">Hosted by Carine · Superhost · 10 years hosting</div>
+      </div>
+      <div class="foot-links">
+        <a href="#disponibilidad">Availability</a>
+        <a href="#ubicacion">Location</a>
+        <a href="#" target="_blank" rel="noopener">Message on Airbnb</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function(){
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+  });
+})();
+
+(function(){
+  function toKey(y,m,d){
+    return y + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+  }
+  var bookedSet = new Set();
+  var freshnessNote = document.getElementById('calFreshness');
+
+  fetch('data/availability.json', { cache: 'no-store' })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      (data.booked || []).forEach(function(iso){ bookedSet.add(iso); });
+      if (freshnessNote) {
+        if (data.generated_at) {
+          var d = new Date(data.generated_at);
+          freshnessNote.textContent = 'Last synced ' + d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }) + ' from ' + ((data.sources_ok || []).join(' and ') || 'no sources yet') + '.';
+        } else {
+          freshnessNote.textContent = 'Calendar sync has not run yet — showing no bookings until the first daily refresh completes.';
+        }
+      }
+      render();
+    })
+    .catch(function(){
+      if (freshnessNote) { freshnessNote.textContent = 'Could not load live availability data right now.'; }
+      render();
+    });
+
+  var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var dowNames = ['Mo','Tu','We','Th','Fr','Sa','Su'];
+  var today = new Date();
+  var viewYear = today.getFullYear();
+  var viewMonth = today.getMonth();
+
+  var grid = document.getElementById('calGrid');
+  var label = document.getElementById('calLabel');
+
+  function render(){
+    label.textContent = monthNames[viewMonth] + ' ' + viewYear;
+    grid.innerHTML = '';
+    dowNames.forEach(function(d){
+      var el = document.createElement('div');
+      el.className = 'cal-dow';
+      el.textContent = d;
+      grid.appendChild(el);
+    });
+    var firstDay = new Date(viewYear, viewMonth, 1);
+    var startPad = (firstDay.getDay() + 6) % 7;
+    var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+    for (var i = 0; i < startPad; i++) {
+      var pad = document.createElement('div');
+      pad.className = 'cal-day pad';
+      grid.appendChild(pad);
+    }
+    for (var d = 1; d <= daysInMonth; d++) {
+      var cell = document.createElement('div');
+      var key = toKey(viewYear, viewMonth, d);
+      var isBooked = bookedSet.has(key);
+      cell.className = 'cal-day ' + (isBooked ? 'booked' : 'open');
+      if (viewYear === today.getFullYear() && viewMonth === today.getMonth() && d === today.getDate()) {
+        cell.className += ' today';
+      }
+      cell.textContent = d;
+      grid.appendChild(cell);
+    }
+  }
+
+  document.getElementById('prevMonth').addEventListener('click', function(){
+    viewMonth -= 1;
+    if (viewMonth < 0) { viewMonth = 11; viewYear -= 1; }
+    render();
+  });
+  document.getElementById('nextMonth').addEventListener('click', function(){
+    viewMonth += 1;
+    if (viewMonth > 11) { viewMonth = 0; viewYear += 1; }
+    render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
